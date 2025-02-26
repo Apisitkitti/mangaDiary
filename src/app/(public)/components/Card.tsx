@@ -1,42 +1,38 @@
 import Image from 'next/image'
-
+import { BookInformation } from '../interface/book'
 interface Props {
-  image: string
-  name: string
-  alt: string
-  tag: { isHasColor: boolean; author: string }
+  book: BookInformation
 }
-const Card: React.FC<Props> = ({
-  image = '/assets/no_image.jpg',
-  alt = 'no image',
-  name,
-  tag = { author: 'manga', isHasColor: false },
-}) => {
+const Card: React.FC<Props> = ({ book }) => {
   return (
-    <div className="relative w-max">
-      <div className="relative">
+    <div className="relative m-5">
+      <div className="relative w-max">
         <Image
           src={
-            tag.author === 'manga'
+            book.tag.type === 'manga'
               ? '/assets/japan_flag.png'
               : '/assets/korea_flag.png'
           }
-          alt={tag.author}
-          className="absolute right-0 object-contain"
-          width={50}
+          alt={book.tag.type}
+          className="absolute top-0 right-0 rounded-xs object-contain"
+          width={40}
           height={20}
         />
         <Image
-          src={image}
-          alt={alt}
-          className="rounded object-contain"
-          width={50}
-          height={150}
+          src={book.image}
+          alt={book.alt}
+          className="rounded-xl object-contain"
+          width={160}
+          height={100}
         />
-        {tag.isHasColor && <div>COLOR</div>}
+        {book.tag.isHasColor && (
+          <p className="absolute bottom-0 bg-amber-300 text-xs font-semibold">
+            COLOR
+          </p>
+        )}
       </div>
       <div>
-        <p>{name}</p>
+        <p className="text-xs">{book.name}</p>
       </div>
     </div>
   )
