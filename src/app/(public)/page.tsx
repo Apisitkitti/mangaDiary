@@ -1,40 +1,10 @@
 import BooksLists from './components/BookLists'
-import { BookType } from './interface/book'
+import { BOOKS } from '../database/books'
 
 export default function Home() {
   return (
-    <div className="flex justify-between">
-      <BooksLists
-        bookData={[
-          {
-            name: 'สถาปนิกผู้พิทักษ์อาณาจักร',
-            image: '/manga_test.jpg',
-            alt: 'สถาปนิกผู้พิทักษ์อาณาจักร',
-            tag: {
-              isHasColor: true,
-              type: BookType.MANHWA,
-            },
-          },
-          {
-            name: 'สถาปนิกผู้พิทักษ์อาณาจักร',
-            image: '/manga_test.jpg',
-            alt: 'สถาปนิกผู้พิทักษ์อาณาจักร',
-            tag: {
-              isHasColor: true,
-              type: BookType.MANHWA,
-            },
-          },
-          {
-            name: 'สถาปนิกผู้พิทักษ์อาณาจักร',
-            image: '/manga_test.jpg',
-            alt: 'สถาปนิกผู้พิทักษ์อาณาจักร',
-            tag: {
-              isHasColor: true,
-              type: BookType.MANHWA,
-            },
-          },
-        ]}
-      />
+    <div className="m-5 flex items-center space-x-5 bg-red-400">
+      <BooksLists bookData={BOOKS} />
     </div>
   )
 }

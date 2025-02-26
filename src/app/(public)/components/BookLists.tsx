@@ -6,7 +6,7 @@ interface Props {
 
 const BooksLists: React.FC<Props> = ({ bookData }) => {
   return bookData.map((bookItem, index) => (
-    <div key={index} className="m-10">
+    <div key={index}>
       <Card book={bookItem} />
     </div>
   ))

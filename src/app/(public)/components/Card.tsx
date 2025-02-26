@@ -22,8 +22,8 @@ const Card: React.FC<Props> = ({ book }) => {
         <Image
           src={book.image}
           alt={book.alt}
-          className="rounded-xl object-contain hover:scale-125"
-          width={160}
+          className="rounded-xl object-contain"
+          width={140}
           height={100}
         />
         {book.tag.isHasColor && (
