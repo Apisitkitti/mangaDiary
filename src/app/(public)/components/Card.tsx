@@ -1,15 +1,16 @@
 import Image from 'next/image'
-import { BookInformation } from '../interface/book'
+import { BookInformation, BookType } from '../interface/book'
+import Link from 'next/link'
 interface Props {
   book: BookInformation
 }
 const Card: React.FC<Props> = ({ book }) => {
   return (
-    <div className="relative m-5">
-      <div className="relative w-max">
+    <Link href="#" className="relative">
+      <div className="relative">
         <Image
           src={
-            book.tag.type === 'manga'
+            book.tag.type === BookType.MANGA
               ? '/assets/japan_flag.png'
               : '/assets/korea_flag.png'
           }
@@ -21,7 +22,7 @@ const Card: React.FC<Props> = ({ book }) => {
         <Image
           src={book.image}
           alt={book.alt}
-          className="rounded-xl object-contain"
+          className="rounded-xl object-contain hover:scale-125"
           width={160}
           height={100}
         />
@@ -32,9 +33,9 @@ const Card: React.FC<Props> = ({ book }) => {
         )}
       </div>
       <div>
-        <p className="text-xs">{book.name}</p>
+        <p className="text-xs text-amber-50">{book.name}</p>
       </div>
-    </div>
+    </Link>
   )
 }
 export default Card
