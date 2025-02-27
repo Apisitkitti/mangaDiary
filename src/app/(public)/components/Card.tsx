@@ -6,8 +6,8 @@ interface Props {
 }
 const Card: React.FC<Props> = ({ book }) => {
   return (
-    <Link href="#" className="relative">
-      <div className="relative">
+    <Link href="#" className="break-words">
+      <div className="relative w-max">
         <Image
           src={
             book.tag.type === BookType.MANGA
@@ -22,8 +22,8 @@ const Card: React.FC<Props> = ({ book }) => {
         <Image
           src={book.image}
           alt={book.alt}
-          className="rounded-xl object-contain"
-          width={140}
+          className="h-[200px] w-[150px] rounded-xs object-fill"
+          width={150}
           height={100}
         />
         {book.tag.isHasColor && (
@@ -33,7 +33,9 @@ const Card: React.FC<Props> = ({ book }) => {
         )}
       </div>
       <div>
-        <p className="text-xs text-amber-50">{book.name}</p>
+        <p className="w-36 text-lg font-bold break-words text-amber-50">
+          {book.name}
+        </p>
       </div>
     </Link>
   )
